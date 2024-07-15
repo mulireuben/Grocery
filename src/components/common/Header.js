@@ -58,6 +58,9 @@ function AppHeader() {
           </Button>
         </div>
       </div>
+      <div className='header separator'>
+        <div className='logo'>S.O.S Grocery </div>
+      </div>
     </div>
   );
 }
