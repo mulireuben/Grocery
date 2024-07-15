@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import {
   FacebookFilled,
   InstagramFilled,
@@ -60,6 +61,25 @@ function AppHeader() {
       </div>
       <div className='header separator'>
         <div className='logo'>S.O.S Grocery </div>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to='/'>Home</NavLink>
+            </li>
+            <li>
+              <NavLink to='/About'>About</NavLink>
+            </li>
+            <li>
+              <NavLink to='/Shop'>Shop</NavLink>
+            </li>
+            <li>
+              <NavLink to='/Faq'>Faq</NavLink>
+            </li>
+            <li>
+              <NavLink to='/Contact'>Contact</NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );
