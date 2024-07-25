@@ -9,6 +9,7 @@ import AppFaq from './components/pages/faq';
 import AppShop from './components/pages/shop';
 import AppHome from './components/pages/home';
 import FooterWidget from './components/common/footerWidget';
+import FooterCopyright from './components/common/footerCopyright';
 
 const { Header, Footer, Content } = Layout;
 
@@ -33,6 +34,7 @@ function App() {
 
         <Footer>
           <FooterWidget />
+          <FooterCopyright />
         </Footer>
       </Layout>
     </div>
