@@ -34,7 +34,7 @@ function App() {
 
         <Footer>
           <FooterWidget />
-          <FooterCopyright />
+          <FooterCopyright /> 
         </Footer>
       </Layout>
     </div>
