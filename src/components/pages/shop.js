@@ -3,7 +3,7 @@ import { Button, Col, Dropdown, Row } from 'antd';
 const products = [
   {
     key: '1',
-    image: require('../../assets/images/img1.jpg'),
+    image: require('../../assets/images/ad-img1.png'),
     title:
       'Fairy Clean & Fresh Washing Up Liquid Pomegranate &amp; Honeysuckle 520 ml',
     price: '£2.00',
@@ -109,10 +109,10 @@ function AppShop() {
             <Button>sort by</Button>
           </Dropdown>
         </div>
-        <Row gutter={24}>
+        <Row gutter={[24, 24]}>
           {products.map((products) => {
             return (
-              <Col lg={6}>
+              <Col xs={24} sm={12} lg={6}>
                 <div className='content'>
                   <div className='image'>
                     <img src={products.image} alt='products' />

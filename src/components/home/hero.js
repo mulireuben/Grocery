@@ -7,9 +7,9 @@ import Image3 from '../../assets/images/banner-img3.jpg';
 const Hero = () => {
   return (
     <div className='heroBlock'>
-      <Row gutter={18}>
+      <Row gutter={[24, 24]}>
         {/* couserol */}
-        <Col lg={18}>
+        <Col xs={24} lg={18}>
           <Carousel autoplay>
             <div>
               <img src={Image1} alt='banner1' />
@@ -23,7 +23,7 @@ const Hero = () => {
           </Carousel>
         </Col>
         {/* information block? */}
-        <Col lg={6}>
+        <Col xs={24} lg={6}>
           <div className='heroBlocks'>
             <div className='holder'>
               <div className='icon'>

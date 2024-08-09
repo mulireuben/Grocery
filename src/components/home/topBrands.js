@@ -26,7 +26,7 @@ function TopBrands() {
       <Row gutter={24}>
         {products.map((product) => {
           return (
-            <Col sm={6} key={product.key}>
+            <Col xs={12} sm={6} key={product.key}>
               <div className='content'>
                 <div className='image'>
                   <img src={product.image} alt='product' />

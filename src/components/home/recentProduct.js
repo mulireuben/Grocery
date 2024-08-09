@@ -33,10 +33,10 @@ const RecentProduct = () => {
   return (
     <div className='block products'>
       <h2>Recent Products</h2>
-      <Row gutter={24}>
+      <Row gutter={[24, 24]}>
         {products.map((products) => {
           return (
-            <Col lg={6}>
+            <Col xs={24} sm={12} lg={6}>
               <div className='content'>
                 <div className='image'>
                   <img src={products.image} alt='products' />

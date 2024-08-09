@@ -71,7 +71,7 @@ const ProductCategories = () => {
       <Row gutter={[24, 24]}>
         {productCategories.map((productCategory) => {
           return (
-            <Col lg={4} key={productCategory.key}>
+            <Col xs={12} sm={6} lg={4} key={productCategory.key}>
               <div className='content'>
                 <div className='image'>
                   <img

@@ -5,8 +5,8 @@ import bgimage2 from '../../assets/images/ad-img2.png';
 function Information() {
   return (
     <div className='block informationBlock'>
-      <Row gutter={24}>
-        <Col md={12}>
+      <Row gutter={[24, 24]}>
+        <Col xs={12} md={12}>
           <div
             className='holder'
             style={{
@@ -18,7 +18,7 @@ function Information() {
             <div className='price'>60 p</div>
           </div>
         </Col>
-        <Col md={12}>
+        <Col xs={12} md={12}>
           <div
             className='holder'
             style={{

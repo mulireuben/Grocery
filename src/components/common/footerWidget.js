@@ -32,9 +32,9 @@ function FooterWidget() {
   return (
     <div className='footerWidget'>
       <div className='container'>
-        <Row gutter={24}>
+        <Row gutter={[24, 24]}>
           {/* featured */}
-          <Col md={6}>
+          <Col xs={24} sm={12} md={6}>
             <h3>Featured</h3>
             <List
               itemLayout='horizontal'
@@ -51,7 +51,7 @@ function FooterWidget() {
             />
           </Col>
           {/* top rated */}
-          <Col md={6}>
+          <Col xs={24} sm={12} md={6}>
             <h3>Top Rated</h3>
             <List
               itemLayout='horizontal'
@@ -68,7 +68,7 @@ function FooterWidget() {
             />
           </Col>
           {/* tags */}
-          <Col md={6}>
+          <Col xs={24} sm={12} md={6}>
             <h3>Tags</h3>
             <div className='tags'>
               <Tag>
@@ -83,7 +83,7 @@ function FooterWidget() {
             </div>
           </Col>
           {/* recent posts */}
-          <Col md={6}>
+          <Col xs={24} sm={12} md={6}>
             <h3> Recent Posts</h3>
             <List
               size='small'
