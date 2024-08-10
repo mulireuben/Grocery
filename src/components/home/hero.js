@@ -10,7 +10,7 @@ const Hero = () => {
       <Row gutter={[24, 24]}>
         {/* couserol */}
         <Col xs={24} lg={18}>
-          <Carousel autoplay autoplaySpeed={1000}>
+          <Carousel autoplay autoplaySpeed={1500}>
             <div>
               <img src={Image1} alt='banner1' />
             </div>
