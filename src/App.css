@@ -100,6 +100,7 @@ img {
 
 .topBar .otherInfo {
   display: flex;
+  align-items: center;
 }
 
 .topBar .socialMedia {
