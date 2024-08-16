@@ -1,21 +1,36 @@
-import { Button, Form, Input, Select } from 'antd';
+import emailjs from '@emailjs/browser';
+import { Button, Form, Input } from 'antd';
+import { useState } from 'react';
 
-const { Option } = Select;
 const { TextArea } = Input;
 
 function AppContact() {
-  const prefixSelector = (
-    <Form.Item name='prefix' noStyle>
-      <Select
-        style={{
-          width: 70,
-        }}
-      >
-        <Option value='86'>+86</Option>
-        <Option value='87'>+87</Option>
-      </Select>
-    </Form.Item>
-  );
+  const [values, setValues] = useState({
+    fullname: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (formValues) => {
+    const serviceId = 'service_iradodn';
+    const templateId = 'template_amhlq8i';
+    const publicKey = 'lQ9qVMGoJJz-gBJxJ';
+
+    const templateParams = {
+      from_name: formValues.fullname,
+      to_name: 'Reuben',
+      from_email: formValues.email,
+      message: formValues.message,
+      reply_to: formValues.email,
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log('Email sent successfully', response);
+      })
+      .catch((error) => console.log('Error', error));
+  };
+
   return (
     <div className='block contactPage'>
       <div className='container'>
@@ -26,6 +41,7 @@ function AppContact() {
           autoComplete='off'
           layout='vertical'
           size='large'
+          onFinish={handleSubmit}  // Use onFinish instead of onSubmit
         >
           <Form.Item
             label='Full name'
@@ -33,7 +49,7 @@ function AppContact() {
             rules={[
               {
                 required: true,
-                message: ' please input your name!',
+                message: 'Please input your name!',
               },
             ]}
           >
@@ -46,32 +62,14 @@ function AppContact() {
               {
                 required: true,
                 type: 'email',
-                message: ' please input your email!',
+                message: 'Please input your email!',
               },
             ]}
           >
             <Input />
           </Form.Item>
-
           <Form.Item
-            name='phone'
-            label='Phone Number'
-            rules={[
-              {
-                required: true,
-                message: 'Please input your phone number!',
-              },
-            ]}
-          >
-            <Input
-              addonBefore={prefixSelector}
-              style={{
-                width: '100%',
-              }}
-            />
-          </Form.Item>
-          <Form.Item
-            name='Message'
+            name='message'
             label='Message'
             rules={[
               {
