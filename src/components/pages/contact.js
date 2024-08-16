@@ -1,5 +1,6 @@
 import emailjs from '@emailjs/browser';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
+import axios from 'axios';
 import { useState } from 'react';
 
 const { TextArea } = Input;
@@ -11,25 +12,59 @@ function AppContact() {
     message: ''
   });
 
-  const handleSubmit = (formValues) => {
-    const serviceId = 'service_iradodn';
-    const templateId = 'template_amhlq8i';
-    const publicKey = 'lQ9qVMGoJJz-gBJxJ';
+  const handleSubmit = async(formValues) => {
+    
+    console.log(values);
+    
+    const serviceId = 'service_cotx088';
+    const templateId = 'template_bwcdbpm';
+    const publicKey = '0LhXgLoOeukYC6BTA';
+    
+    const { fullname, email, message } = formValues;
+try{
+    const data={
+      service_Id: serviceId,
+      template_Id: templateId,
+      user_id: publicKey,
+      template_params:{
+        from_name: fullname,
+        from_email: email,
+        to_name: 'Reuben',
+        message: message,
 
-    const templateParams = {
-      from_name: formValues.fullname,
-      to_name: 'Reuben',
-      from_email: formValues.email,
-      message: formValues.message,
-      reply_to: formValues.email,
-    };
+      }
+    }
 
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-        console.log('Email sent successfully', response);
-      })
-      .catch((error) => console.log('Error', error));
+    
+      const res = await axios.post('https://api.emailjs.com/api/v1.0/email/send',data);
+      console.log(res);
+      setValues({
+        fullname: '',
+        email: '',
+        message: ''
+      });
+    }
+   
+    catch(err){
+      console.log(err)
+    }
+
+    // const templateParams = {
+    //   from_name: formValues.fullname,
+    //   to_name: 'Reuben',
+    //   from_email: formValues.email,
+    //   message: formValues.message,
+    //   reply_to: formValues.email,
+    // };
+
+    // emailjs.send(serviceId, templateId, templateParams, publicKey)
+    //   .then((response) => {
+    //     console.log('Email sent successfully', response);
+    //   })
+    //   .catch((error) => console.log('Error', error));
   };
+  // console.log(e)
+
 
   return (
     <div className='block contactPage'>
@@ -46,6 +81,7 @@ function AppContact() {
           <Form.Item
             label='Full name'
             name='fullname'
+            onChange={(e)=>setValues(e.target.value)}
             rules={[
               {
                 required: true,
@@ -58,6 +94,7 @@ function AppContact() {
           <Form.Item
             label='Email'
             name='email'
+            onChange={(e)=>setValues(e.target.value)}
             rules={[
               {
                 required: true,
@@ -71,6 +108,7 @@ function AppContact() {
           <Form.Item
             name='message'
             label='Message'
+            onChange={(e)=>setValues(e.target.value)}
             rules={[
               {
                 required: true,
