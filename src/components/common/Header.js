@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import {
+import Icon, {
   FacebookFilled,
   InstagramFilled,
   MailOutlined,
@@ -10,9 +10,13 @@ import {
 } from '@ant-design/icons';
 import { Button, Drawer } from 'antd';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function AppHeader() {
   const [open, setOpen] = useState(false);
+  // const [user,setUser]=useState()
+  const navigate = useNavigate();
+  const username = JSON.parse(localStorage.getItem('user'));
 
   const showDrawer = () => {
     setOpen(true);
@@ -20,6 +24,13 @@ function AppHeader() {
 
   const onClose = () => {
     setOpen(false);
+  };
+  const navigateToAuth = () => {
+    navigate('/signup');
+  };
+  const handleLogout = () => {
+    localStorage.removeItem('loggedin');
+    navigate('/login');
   };
   return (
     <div className='container'>
@@ -64,10 +75,25 @@ function AppHeader() {
               </a>
             </li>
           </ul>
-          <Button>
-            <UserOutlined />
-            My Account
-          </Button>
+          {username ? (
+            <div style={{ alignItems: 'horizontal' }}>
+              {' '}
+              <Button>Welcome {username.name} </Button>
+              <Button>
+                {' '}
+                <Icon
+                  type='logout'
+                  style={{ backgroundColor: 'yellow' }}
+                  onClick={handleLogout}
+                />
+              </Button>
+            </div>
+          ) : (
+            <Button onClick={navigateToAuth}>
+              <UserOutlined />
+              My Account
+            </Button>
+          )}
         </div>
       </div>
       <div className='header separator'>

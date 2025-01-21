@@ -10,6 +10,8 @@ import AppShop from './components/pages/shop';
 import AppHome from './components/pages/home';
 import FooterWidget from './components/common/footerWidget';
 import FooterCopyright from './components/common/footerCopyright';
+import SignUpPage from './components/pages/SignUpPage';
+import LoginPage from './components/pages/LoginPage';
 
 const { Header, Footer, Content } = Layout;
 
@@ -28,13 +30,15 @@ function App() {
               <Route path='/Shop' element={<AppShop />} />
               <Route path='/Faq' element={<AppFaq />} />
               <Route path='/Contact' element={<AppContact />} />
+              <Route path='/signup' element={<SignUpPage />} />
+              <Route path='/login' element={<LoginPage />} />
             </Routes>
           </Content>
         </Router>
 
         <Footer>
           <FooterWidget />
-          <FooterCopyright /> 
+          <FooterCopyright />
         </Footer>
       </Layout>
     </div>
