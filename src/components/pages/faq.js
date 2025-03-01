@@ -47,7 +47,7 @@ function AppFaq() {
               prodesset mei et.
             </p>
           </Panel>
-          <Panel header='Managing my account' key='4'>
+          <Panel header='Managing git gicount' key='4'>
             <p>
               Duo ea legimus legendos. Iusto aliquando quo in. Novum tritani ei
               pro, solum discere duo ad. Te mea dicant omnium, quem ornatus
