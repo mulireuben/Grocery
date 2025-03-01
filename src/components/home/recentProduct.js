@@ -43,7 +43,7 @@ const RecentProduct = () => {
                 </div>
                 <h3>{products.title}</h3>
                 <div className='price'> {products.price}</div>
-                <Button type='primary'>Add to Basket</Button>
+                <Button type='primary'>Request</Button>
               </div>
             </Col>
           );

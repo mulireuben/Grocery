@@ -49,7 +49,7 @@ const SaleProduct = () => {
                   <span className='salePrice'>{products.saleprice}</span>
                   {products.price}
                 </div>
-                <Button type='primary'>Add to Basket</Button>
+                <Button type='primary'>Request</Button>
               </div>
             </Col>
           );
